@@ -1,0 +1,15 @@
+// Clearfix
+@mixin clearfix() {
+	&:after {
+		content: '';
+		display: table;
+		table-layout: fixed;
+		clear: both;
+	}
+}
+
+@mixin svg-icon($icon-name) {
+	background-image: url('../svg/symbol-defs.svg#icon-' + $icon-name );
+	background-repeat: no-repeat;
+	background-size: cover;
+}

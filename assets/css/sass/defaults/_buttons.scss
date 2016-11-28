@@ -1,0 +1,23 @@
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.button {
+	display: inline-block;
+	margin: 0 1em;
+	color: $black;
+	line-height: 2;
+	border-bottom: 2px solid $pink;
+	text-transform: uppercase;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+
+	&:visited {
+		color: $black;
+	}
+
+	&:hover,
+	&:focus {
+		background: $pink;
+	}
+}

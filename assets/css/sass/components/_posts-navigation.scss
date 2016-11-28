@@ -1,0 +1,27 @@
+.posts-navigation {
+	margin-bottom: $y-gutter;
+
+	.nav-links {
+		display: flex;
+	}
+
+	.nav-previous {
+		flex: 0 0 50%;
+		text-align: left;
+
+		a:before {
+			content: '\2039';
+			margin-right: 0.5em;
+		}
+	}
+
+	.nav-next {
+		flex: 0 0 50%;
+		text-align: right;
+
+		a:after {
+			content: '\203A';
+			margin-left: 0.5em;
+		}
+	}
+}

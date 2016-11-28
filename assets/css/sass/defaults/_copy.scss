@@ -1,0 +1,141 @@
+:root.fonts-loaded {
+	font-family: $font__main;
+}
+
+// Text may be in a widget for much of the site's content, or
+// in the normal entry-content for blog posts
+.entry-content,
+.textwidget {
+	p {
+		margin-bottom: $half-y-gutter;
+	}
+
+	> p:last-child {
+		margin-bottom: 0;
+	}
+
+	dfn,
+	cite,
+	em,
+	i {
+		font-style: italic;
+	}
+
+	blockquote {
+		margin: 0 $half-y-gutter;
+	}
+
+	address {
+		margin: 0 0 $half-y-gutter;
+	}
+
+	dt {
+		font-weight: bold;
+	}
+
+	dd {
+		margin: 0 1.5em 1.5em;
+	}
+
+	pre {
+		background: $color__background-pre;
+		font-family: $font__pre;
+		font-size: 12px;
+		line-height: $font__line-height-pre;
+		margin-bottom: 1.6em;
+		max-width: 100%;
+		overflow: auto;
+		padding: 1.6em;
+	}
+
+	code,
+	kbd,
+	tt,
+	var {
+		font-family: $font__code;
+		font-size: 12px;
+	}
+
+	abbr,
+	acronym {
+		border-bottom: 1px dotted $color__border-abbr;
+		cursor: help;
+	}
+
+	mark,
+	ins {
+		background: $color__background-ins;
+		text-decoration: none;
+	}
+
+	big {
+		font-size: 125%;
+	}
+
+	p > a {
+		text-decoration: none;
+		color: $black;
+		border-bottom: 2px solid $color__link;
+
+		&:hover,
+		&:focus {
+			background: $color__link;
+		}
+	}
+
+	h1 {
+		font-style: 30px;
+		font-weight: 300;
+
+		@include mq(medium) {
+			font-style: 44px;
+		}
+	}
+
+	h2 {
+		font-size: 24px;
+		font-weight: 300;
+
+		@include mq(medium) {
+			font-style: 36px;
+		}
+	}
+
+	h3 {
+		font-size: 20px;
+		font-weight: 300;
+
+		@include mq(medium) {
+			font-style: 30px;
+		}
+	}
+
+	h4 {
+		font-size: 18px;
+
+		@include mq(medium) {
+			font-style: 24px;
+		}
+	}
+
+	h5 {
+		font-size: 16px;
+
+		@include mq(medium) {
+			font-style: 20px;
+		}
+	}
+
+	h6 {
+		font-size: 14px;
+
+		@include mq(medium) {
+			font-style: 16px;
+		}
+	}
+
+	ul,
+	ol {
+		margin: 0 0 $half-y-gutter 1em;
+	}
+}

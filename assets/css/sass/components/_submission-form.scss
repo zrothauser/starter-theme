@@ -1,0 +1,136 @@
+.ccf-form-wrapper {
+	margin: 0 auto;
+}
+
+.ui-datepicker {
+	display: none;
+}
+
+.ccf-form {
+	> .field-hide {
+		display: none;
+	}
+
+	> .form-group.city input.field-input {
+		@include mq(medium) {
+			margin-bottom: $half-y-gutter;
+		}
+	}
+
+	> .field-type-radio {
+		text-align: center;
+		margin: 0 -1em $y-gutter;
+		@include clearfix;
+
+		.choice {
+			display: block;
+			position: relative;
+			width: calc(50% - 2em);
+			margin: 0 1em;
+			float: left;
+
+			> label {
+				display: block;
+				cursor: pointer;
+				width: 100%;
+				position: relative;
+			}
+
+			.field-input {
+				width: auto;
+				display: inline;
+				opacity: 0;
+				margin: 0;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+
+			span {
+				cursor: pointer;
+				display: inline-block;
+				width: 100%;
+				border: 1px solid $grey;
+				border-radius: 2em;
+				padding: 0.5em;
+			}
+
+			span:hover {
+				background-color: $off-light-pink;
+				border-color: $off-pink;
+			}
+
+			.field-input:checked ~ span {
+				background: $off-pink;
+				border-color: $off-pink;
+				color: $white;
+			}
+		}
+	}
+
+	.main-label {
+		display: block;
+		margin-bottom: $half-y-gutter;
+		text-align: center;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	input.field-input {
+		display: block;
+		width: 100%;
+		margin-bottom: $y-gutter;
+		text-align: center;
+	}
+
+	select.field-input {
+		display: block;
+		width: 100%;
+		margin-bottom: $y-gutter;
+	}
+
+	.form-submit {
+		margin-top: $y-gutter;
+	}
+
+	.error.required-error {
+		margin-bottom: $half-y-gutter;
+		padding: 0.25em 0.5em;
+		width: 100%;
+		color: red;
+		border: 2px solid red;
+	}
+
+	.loading-img {
+		vertical-align: middle;
+		display: inline-block;
+		border: 0;
+		opacity: 0;
+		float: none;
+		margin: 0 0 0 6px;
+	}
+
+	.field-type-paragraph-text .field-input {
+		height: 240px;
+		border: 1px solid $grey;
+		border-radius: 1em;
+		padding: 1em;
+	}
+}
+
+.ccf-form-frame {
+	display: none;
+}
+
+.panel-grid-cell .ccf-form {
+	flex: 0 1 $full-width;
+	margin-bottom: $y-gutter;
+	padding: $half-y-gutter $half-x-gutter;
+	max-width: $small-width;
+	text-align: center;
+
+	@include mq(medium) {
+		width: $small-width;
+	}
+}

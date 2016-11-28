@@ -1,0 +1,53 @@
+.site-content {
+	padding-bottom: $y-gutter;
+}
+
+.archive,
+.single:not(.siteorigin-panels),
+.blog,
+.error404 {
+	.site-content {
+		width: 100%;
+		max-width: $full-width;
+		margin: 0 auto;
+		padding: 0 $half-x-gutter $y-gutter;
+		@include clearfix;
+
+		&.-has-sidebar {
+			padding-top: $y-gutter;
+		}
+	}
+}
+
+.archive,
+.single-post,
+.blog {
+	.content-area {
+		@include mq(medium) {
+			float: left;
+			margin: 0 -360px 0 0;
+			width: calc(100% - 360px);
+		}
+	}
+
+	.site-main {
+		@include clearfix;
+	}
+
+	.site-content .site-sidebar {
+		@include mq(medium) {
+			float: right;
+			overflow: hidden;
+		}
+	}
+}
+
+.site-sidebar {
+	width: 100%;
+	padding: 0 $half-x-gutter $y-gutter;
+	margin-bottom: #{2 * $y-gutter};
+
+	@include mq(medium) {
+		width: 360px;
+	}
+}

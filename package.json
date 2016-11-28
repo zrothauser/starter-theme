@@ -1,0 +1,31 @@
+{
+  "name": "example-theme",
+  "title": "Example Theme",
+  "description": "A theme for Example Theme",
+  "version": "0.1.0",
+  "homepage": "https://zackrothauser.com",
+  "author": "Zack Rothauser",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "devDependencies": {
+    "autoprefixer": "latest",
+    "grunt": "latest",
+    "glob": "latest",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-postcss": "latest",
+    "postcss-svg-fragments": "latest",
+    "grunt-sass": "latest",
+    "load-grunt-tasks": "latest",
+    "matchdep": "latest",
+    "grunt-svgstore": "latest",
+    "grunt-sftp-deploy": "latest"
+  },
+  "keywords": [],
+  "main": "Gruntfile.js",
+  "license": "ISC"
+}

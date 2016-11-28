@@ -1,0 +1,48 @@
+.site-footer {
+	clear: both;
+	width: 100%;
+	background: $pink;
+	color: $white;
+
+	> .wrapper {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: column;
+		padding: $y-gutter $half-x-gutter;
+
+		@include mq(large) {
+			flex-direction: row;
+		}
+	}
+
+	.footer-navigation {
+		@include mq(large) {
+			flex: 0 0 50%;
+		}
+	}
+
+	.footer-misc {
+		@include mq(large) {
+			flex: 0 0 220px;
+		}
+	}
+
+	.social-follow {
+		margin: 0 auto $y-gutter;
+		max-width: 80%;
+
+		@include mq(large) {
+			margin: 0 0 $half-y-gutter;
+			max-width: none;
+		}
+	}
+
+	.copyright {
+		font-size: 14px;
+		text-align: center;
+
+		@include mq(large) {
+			text-align: right;
+		}
+	}
+}
