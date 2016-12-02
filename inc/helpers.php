@@ -66,3 +66,20 @@ function posted_on() {
 
 	echo '<span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
 }
+
+/**
+ * Displays the social links, with an optional label.
+ *
+ * @param string $label An optional label to display before the links.
+ * @param bool   $mini  True to display small icons, false to display the default size icons.
+ * @param string $color One of three values: "light", "dark", "bright". Actual color is determined by CSS.
+ */
+function display_social_links( $label = false, $mini = true, $color = 'dark' ) {
+
+	$facebook_link  = get_theme_mod( 'facebook-url', false );
+	$twitter_link   = get_theme_mod( 'twitter-url', false );
+	$instagram_link = get_theme_mod( 'instagram-url', false );
+
+	include locate_template( 'template-parts/social-links.php' );
+}
+

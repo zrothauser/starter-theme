@@ -2,16 +2,13 @@
 	font-family: $font__main;
 }
 
-// Text may be in a widget for much of the site's content, or
-// in the normal entry-content for blog posts
-.entry-content,
-.textwidget {
+.entry-content {
 	p {
-		margin-bottom: $half-y-gutter;
-	}
+		margin: 0 0 $half-y-gutter;
 
-	> p:last-child {
-		margin-bottom: 0;
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 
 	dfn,
@@ -70,68 +67,6 @@
 
 	big {
 		font-size: 125%;
-	}
-
-	p > a {
-		text-decoration: none;
-		color: $black;
-		border-bottom: 2px solid $color__link;
-
-		&:hover,
-		&:focus {
-			background: $color__link;
-		}
-	}
-
-	h1 {
-		font-style: 30px;
-		font-weight: 300;
-
-		@include mq(medium) {
-			font-style: 44px;
-		}
-	}
-
-	h2 {
-		font-size: 24px;
-		font-weight: 300;
-
-		@include mq(medium) {
-			font-style: 36px;
-		}
-	}
-
-	h3 {
-		font-size: 20px;
-		font-weight: 300;
-
-		@include mq(medium) {
-			font-style: 30px;
-		}
-	}
-
-	h4 {
-		font-size: 18px;
-
-		@include mq(medium) {
-			font-style: 24px;
-		}
-	}
-
-	h5 {
-		font-size: 16px;
-
-		@include mq(medium) {
-			font-style: 20px;
-		}
-	}
-
-	h6 {
-		font-size: 14px;
-
-		@include mq(medium) {
-			font-style: 16px;
-		}
 	}
 
 	ul,

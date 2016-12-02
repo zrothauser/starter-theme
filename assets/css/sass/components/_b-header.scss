@@ -1,0 +1,27 @@
+.b-header {
+	@include clearfix;
+	width: 100%;
+}
+
+.b-header__wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	max-width: $full-width;
+	padding: $half-y-gutter $half-x-gutter;
+	justify-content: center;
+	align-items: center;
+
+	@include mq(medium) {
+		flex-wrap: nowrap;
+		justify-content: flex-start;
+		padding: $y-gutter $half-x-gutter;
+	}
+}
+
+.main-navigation {
+	flex: 0 0 100%;
+
+	@include mq(medium) {
+		flex: 1 1 100%;
+	}
+}

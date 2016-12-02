@@ -1,0 +1,14 @@
+.b-header-navigation {
+	display: block;
+
+	@include mq($until: medium) {
+		position: fixed;
+		top: 0;
+		right: -320px;
+		width: 320px;
+		background: white;
+		color: black;
+		height: 100%;
+		padding: 1em;
+	}
+}

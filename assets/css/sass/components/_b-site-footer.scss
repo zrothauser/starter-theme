@@ -1,0 +1,37 @@
+.b-site-footer {
+	clear: both;
+	width: 100%;
+	color: $white;
+}
+
+.b-site-footer__container {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	padding: $y-gutter $half-x-gutter;
+
+	@include mq(large) {
+		flex-direction: row;
+	}
+}
+
+.b-site-footer__navigation {
+	@include mq(large) {
+		flex: 0 0 50%;
+	}
+}
+
+.b-site-footer__misc {
+	@include mq(large) {
+		flex: 0 0 220px;
+	}
+}
+
+.b-sitefooter__copyright {
+	font-size: 14px;
+	text-align: center;
+
+	@include mq(large) {
+		text-align: right;
+	}
+}

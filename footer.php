@@ -7,36 +7,31 @@
 namespace Company_Name\Project_Name\Theme;
 ?>
 
-	</div><!-- .site-content -->
+	</div><!-- .b-page-content -->
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="wrapper -full-width">
+	<footer class="b-site-footer" role="contentinfo">
+		<div class="b-site-footer__container">
 
-			<nav id="footer-navigation" class="footer-navigation" role="navigation">
+			<nav id="footer-navigation" class="b-footer-navigation" role="navigation">
 				<?php wp_nav_menu( array(
-					'theme_location' => 'primary',
-					'menu_id'        => 'primary-menu',
-					'container'      => false,
-					'menu_class'     => 'nav-menu -primary',
-				) ); ?>
-
-				<?php wp_nav_menu( array(
-					'theme_location' => 'secondary-footer',
-					'menu_id'        => 'secondary-footer-menu',
-					'container'      => false,
-					'menu_class'     => 'nav-menu -secondary',
+					'theme_location'  => 'header-menu',
+					'container'       => false,
+					'container_class' => 'b-site-footer__navigation',
+					'menu_class'      => 'b-footer-menu',
+					'depth'           => 1,
+					'walker'          => new Bem_Menu_Walker,
 				) ); ?>
 			</nav><!-- .main-navigation -->
 
-			<div class="footer-misc">
-				<?php get_template_part( 'template-parts/social-follow' ); ?>
+			<div class="b-site-footer__misc">
+				<?php Helpers\display_social_links( false, false, 'light' ); ?>
 
-				<div class="copyright">Starter_Theme &copy; <?php echo esc_html( date( 'Y' ) ); ?></div>
+				<div class="b-sitefooter__copyright">Starter Theme &copy; <?php echo esc_html( date( 'Y' ) ); ?></div>
 			</div>
 
-		</div><!-- .wrapper -->
-	</footer><!-- .site-footer -->
-</div><!-- .site -->
+		</div><!-- .b-site-footer__container -->
+	</footer><!-- .b-site-footer -->
+</div><!-- .b-site-wrapper>
 
 <?php wp_footer(); ?>
 

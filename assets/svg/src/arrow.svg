@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Colors_V2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 148.9 413.3" style="enable-background:new 0 0 148.9 413.3;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#FFFFFF;stroke-width:15;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#FFFFFF;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st2{fill:#FFFFFF;}
+</style>
+<line class="st0" x1="72" y1="399.9" x2="72" y2="74.9"/>
+	<polyline class="st1" points="141.4,338.9 74.5,405.8 7.5,338.9 "/>
+	<polyline class="st1" points="141.4,91.7 74.5,158.7 7.5,91.7 "/>
+	<polyline class="st1" points="141.4,49.6 74.5,116.6 7.5,49.6 "/>
+	<polyline class="st1" points="141.4,7.5 74.5,74.5 7.5,7.5 "/>
+	<circle class="st2" cx="74.5" cy="258.3" r="14"/>
+</svg>

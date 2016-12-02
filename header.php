@@ -18,17 +18,17 @@ namespace Company_Name\Project_Name\Theme;
 
 <body <?php body_class(); ?>>
 
-<div id="page" class="site">
+<div id="wrapper" class="b-site-wrapper">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'starter-theme' ); ?></a>
 
-	<header id="masthead" class="site-header" role="banner">
-		<div class="wrapper -full-width">
+	<header class="b-header" role="banner">
+		<div class="b-header__wrapper">
 
 			<?php the_custom_logo(); ?>
 
 			<button class="b-header__toggle" id="js-menu-toggle" aria-controls="menu" aria-expanded="false">Menu</button>
 
-			<nav id="header-navigation" class="main-navigation" role="navigation">
+			<nav id="js-header-navigation" class="b-header-navigation" role="navigation">
 				<?php wp_nav_menu( array(
 					'theme_location'  => 'header-menu',
 					'menu_id'         => 'js-header-menu',
@@ -36,9 +36,9 @@ namespace Company_Name\Project_Name\Theme;
 					'menu_class'      => 'b-header-menu',
 					'walker'          => new Bem_Menu_Walker,
 				) ); ?>
-			</nav><!-- .main-navigation -->
+			</nav><!-- .b-header-navigation -->
 
-		</div><!-- .wrapper -->
-	</header><!-- .site-header -->
+		</div><!-- .b-header__wrapper -->
+	</header><!-- .b-header -->
 
-	<div id="content" class="site-content">
+	<div id="content" class="b-page-content">

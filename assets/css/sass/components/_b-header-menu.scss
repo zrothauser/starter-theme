@@ -1,0 +1,36 @@
+.b-header-menu {
+	margin: 0;
+	padding: 0;
+
+	@include mq(medium) {
+		margin: 0 -20px;
+	}
+}
+
+.b-header-menu__item {
+	display: inline;
+	@include font-title-alt;
+	text-transform: uppercase;
+	@include rem(font-size, 14px);
+
+	@include mq($until: medium) {
+		display: block;
+		text-align: center;
+		padding: 0.5em 0;
+	}
+
+	@include mq(medium) {
+		padding: 0 20px;
+	}
+
+	a {
+		color: $black;
+		opacity: 1;
+		transition: opacity 0.4s ease;
+		text-decoration: none;
+
+		&:hover {
+			opacity: 0.5;
+		}
+	}
+}

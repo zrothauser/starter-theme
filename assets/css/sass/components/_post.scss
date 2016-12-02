@@ -46,18 +46,6 @@
 		}
 	}
 
-	.pinterest-link {
-		display: block;
-		position: absolute;
-		top: 15px;
-		right: 5px;
-		width: 211.2px;
-		height: 104.4px;
-		@include svg-icon('pin-it');
-		background-size: cover;
-		z-index: 2;
-	}
-
 	.entry-meta {
 		margin-bottom: $half-y-gutter;
 		text-transform: uppercase;

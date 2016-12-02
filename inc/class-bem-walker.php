@@ -8,6 +8,7 @@
 namespace Company_Name\Project_Name\Theme;
 
 class Bem_Menu_Walker extends \Walker_Nav_Menu {
+
 	/**
 	 * Starts the list before the elements are added.
 	 *
