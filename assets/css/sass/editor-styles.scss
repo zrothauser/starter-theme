@@ -1,3 +1,6 @@
+// Disables our JS font loader, so we can use web fonts in the editor
+$use_font_loader == true
+
 @import 'base/variables';
 
 @import 'mixins/mixins';

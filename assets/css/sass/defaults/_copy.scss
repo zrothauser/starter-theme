@@ -1,5 +1,6 @@
-:root.fonts-loaded {
-	font-family: $font__main;
+body {
+    background: $white;
+    @include font-body;
 }
 
 .entry-content {
