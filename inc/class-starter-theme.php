@@ -12,8 +12,9 @@ class Starter_Theme {
 	 */
 	public function __construct( $file ) {
 
-		// Admin classes
-		$this->hooks = new Starter_Theme\Hooks();
+		// Main theme functionality
+		$this->hooks        = new Hooks();
+		$this->breadcrumbs  = new Breadcrumbs();
 	}
 
 	/**
@@ -30,6 +31,8 @@ class Starter_Theme {
 		add_action( 'after_setup_theme', array( $this->hooks, 'configure_theme' ) );
 		add_action( 'after_setup_theme', array( $this->hooks, 'content_width' ), 0 );
 		add_action( 'after_setup_theme', array( $this->hooks, 'register_menus' ) );
+
+		add_action( 'after_setup_theme', array( $this->breadcrumbs, 'register_hooks' ) );
 
 		do_action( 'starter_theme_loaded' );
 	}
