@@ -10,11 +10,20 @@ class Hooks {
 	 * Set up WordPress hooks
 	 */
 	public function register_hooks() {
-		add_action( 'widgets_init', array( $this, 'widgets_init' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ) );
 
+		// Front-end styles and scripts
+		add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'styles' ) );
+
+		// Register widget areas
+		add_action( 'widgets_init', array( $this, 'widgets_init' ) );
+
+		// Excerpts
 		add_filter( 'excerpt_length', array( $this, 'custom_excerpt_length' ), 999 );
 		add_filter( 'excerpt_more',   array( $this, 'excerpt_more' ), 999 );
+
+		// Editor styles
+		add_action( 'mce_css', array( $this, 'editor_styles' ) );
 	}
 
 	/**
@@ -44,7 +53,7 @@ class Hooks {
 	 * @global int $content_width
 	 */
 	public function content_width() {
-		$GLOBALS['content_width'] = apply_filters( 'starter-theme_content_width', 640 );
+		$GLOBALS['content_width'] = apply_filters( 'starter_theme_content_width', 640 );
 	}
 
 	/**
@@ -54,16 +63,21 @@ class Hooks {
 	}
 
 	/**
-	 * Enqueue scripts and styles.
+	 * Enqueue styles.
 	 */
-	public function scripts() {
+	public function styles() {
 		wp_enqueue_style(
 			'starter-theme-style',
 			ASSETS_DIRECTORY . 'css/starter-theme.min.css',
 			array(),
 			THEME_VERSION
 		);
+	}
 
+	/**
+	 * Enqueue scripts.
+	 */
+	public function scripts() {
 		wp_enqueue_script(
 			'starter-theme-js',
 			ASSETS_DIRECTORY . 'js/starter-theme.min.js',
@@ -99,5 +113,19 @@ class Hooks {
 	 */
 	public function excerpt_more( $more ) {
 		return '&hellip;';
+	}
+
+	/**
+	 * Loads our styles in the TinyMCE editor.
+	 */
+	public function editor_styles( $mce_css ) {
+
+		if ( ! empty( $mce_css ) ) {
+			$mce_css .= ',';
+		}
+
+		$mce_css .= ASSETS_DIRECTORY . 'css/editor-styles.css';
+
+		return $mce_css;
 	}
 }
