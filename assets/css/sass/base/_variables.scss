@@ -31,8 +31,12 @@ $color__border-input:        $light-pink;
 $color__border-abbr:         $black;
 
 // Typography
-$font__fallback:         'Open Sans', Helvetica, Arial, sans-serif;
+$font__main--fallback:   Helvetica, Arial, sans-serif; // replace with a real font stack
 $font__main:             'Open Sans', Helvetica, Arial, sans-serif;
+
+$font__title--fallback:  Helvetica, Arial, sans-serif; // replace with a real font stack
+$font__title:            'Open Sans', Helvetica, Arial, sans-serif;
+
 $font__code:             Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font__pre:              "Courier 10 Pitch", Courier, monospace;
 $font__line-height-body: 1.5;
