@@ -7,9 +7,9 @@
 namespace Company_Name\Project_Name\Theme;
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'b-post' ); ?>>
 
-	<div class="entry-content">
+	<div class="b-entry-content">
 		<?php
 		if ( is_search() || is_home() || is_archive() ) {
 			the_excerpt();
@@ -27,15 +27,13 @@ namespace Company_Name\Project_Name\Theme;
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
+	<footer class="b-entry-footer">
 		<?php
 		if ( ! ( is_search() || is_home() || is_archive() || is_front_page() ) ) {
 			$tags_list = get_the_tag_list( '', esc_html__( ', ', 'starter-theme' ) );
 			if ( $tags_list ) {
 				printf( '<span class="tags-links">' . esc_html__( 'Tagged:  %1$s', 'starter-theme' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 			}
-
-			?><div class="fb-comments" data-href="<?php echo esc_url( get_the_permalink() ); ?>" data-numposts="5"></div><?php
 		}
 		?>
 	</footer><!-- .entry-footer -->

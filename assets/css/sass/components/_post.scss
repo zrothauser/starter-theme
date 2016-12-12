@@ -1,4 +1,4 @@
-.post {
+.b-post {
 	margin-bottom: $y-gutter;
 	padding: $y-gutter $half-x-gutter;
 	background: $white;
@@ -30,7 +30,7 @@
 		}
 	}
 
-	.entry-title {
+	.b-entry-title {
 		margin-bottom: $y-gutter;
 		font-size: 36px;
 		font-weight: 300;
@@ -46,7 +46,7 @@
 		}
 	}
 
-	.entry-meta {
+	.b-entry-meta {
 		margin-bottom: $half-y-gutter;
 		text-transform: uppercase;
 		letter-spacing: 0.05em;

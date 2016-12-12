@@ -31,7 +31,7 @@ namespace Company_Name\Project_Name\Theme;
 
 		</div><!-- .b-site-footer__container -->
 	</footer><!-- .b-site-footer -->
-</div><!-- .b-site-wrapper>
+</div><!-- .b-site-wrapper -->
 
 <?php wp_footer(); ?>
 

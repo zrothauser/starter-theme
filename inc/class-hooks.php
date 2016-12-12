@@ -27,13 +27,6 @@ class Hooks {
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'post-thumbnails' );
 
-		// Image sizes
-
-		// This theme uses wp_nav_menu() in one location.
-		register_nav_menus( array(
-			'primary' => esc_html__( 'Primary', 'starter-theme' ),
-		) );
-
 		add_theme_support( 'html5', array(
 			'search-form',
 			'comment-form',
