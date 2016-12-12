@@ -1,5 +1,7 @@
 /**
  * Watch loading of web fonts.
+ *
+ * Replace this with the actual fonts.
  */
 ( function() {
 	'use strict';
