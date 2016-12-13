@@ -61,7 +61,7 @@ module.exports = function( grunt ) {
 	 *
 	 * @param  {Object} loadConfig('./tasks/options/' runs the `loadConfig` func
 	 */
-	grunt.util._.extend( config, loadConfig( './tasks/options/' ) );
+	grunt.util._.extend( config, loadConfig( './tasks/' ) );
 
 	/**
 	 * Initialize the config object
