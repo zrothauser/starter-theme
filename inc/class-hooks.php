@@ -24,6 +24,10 @@ class Hooks {
 
 		// Editor styles
 		add_action( 'mce_css', array( $this, 'editor_styles' ) );
+
+		// Simplify WordPress functionality
+		add_action( '_admin_menu',        array( $this, 'remove_theme_editor' ), 1 );
+		add_action( 'customize_register', array( $this, 'remove_custom_css_control' ) );
 	}
 
 	/**
@@ -127,5 +131,21 @@ class Hooks {
 		$mce_css .= ASSETS_DIRECTORY . 'css/editor-styles.css';
 
 		return $mce_css;
+	}
+
+	/**
+	 * Removes support for the Theme Editor.
+	 */
+	public function remove_theme_editor() {
+		remove_action( 'admin_menu', '_add_themes_utility_last', 101 );
+	}
+
+	/**
+	 * Removes support for the "Custom CSS" control in the WP 4.7 Customizer.
+	 *
+	 * @param WP_Customize_Manager $wp_customize WP_Customize_Manager instance.
+	 */
+	public function remove_custom_css_control( $wp_customize ) {
+		$wp_customize->remove_control( 'custom_css' );
 	}
 }
