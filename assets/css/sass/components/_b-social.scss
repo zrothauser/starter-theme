@@ -5,7 +5,7 @@
 	padding: 0;
 	vertical-align: middle;
 	@include rem(font-size, 18px);
-	color: $grey-dark;
+	color: $black;
 }
 
 .b-social__menu {
@@ -42,45 +42,15 @@
 	height: 1.5em;
 }
 
-// Color variations
-.b-social--light {
-	.b-social__link--twitter {
-		@include svg-icon('social-twitter', $blue-grey);
-	}
-
-	.b-social__link--facebook {
-		@include svg-icon('social-facebook', $blue-grey);
-	}
-
-	.b-social__link--instagram {
-		@include svg-icon('social-instagram', $blue-grey);
-	}
+// Individual links
+.b-social__link--twitter {
+	@include svg-icon('social-twitter', $color__link);
 }
 
-.b-social--dark {
-	.b-social__link--twitter {
-		@include svg-icon('social-twitter', $black);
-	}
-
-	.b-social__link--facebook {
-		@include svg-icon('social-facebook', $black);
-	}
-
-	.b-social__link--instagram {
-		@include svg-icon('social-instagram', $black);
-	}
+.b-social__link--facebook {
+	@include svg-icon('social-facebook', $color__link);
 }
 
-.b-social--bright {
-	.b-social__link--twitter {
-		@include svg-icon('social-twitter', $fuchsia);
-	}
-
-	.b-social__link--facebook {
-		@include svg-icon('social-facebook', $fuchsia);
-	}
-
-	.b-social__link--instagram {
-		@include svg-icon('social-instagram', $fuchsia);
-	}
+.b-social__link--instagram {
+	@include svg-icon('social-instagram', $color__link);
 }

@@ -8,15 +8,15 @@
 	}
 }
 
-// SVG mixin
+// Load an SVG icon from the map
 //
 // Set up to be used with this setup: https://gist.github.com/jonathantneal/82ab2e96cfaa269a34f6
 //
 // @param {string} $icon-name - Title of the SVG icon
-@mixin svg-icon($icon-name) {
+@mixin svg-icon($icon-name, $fill) {
 	background-image: url('../svg/symbol-defs.svg#icon-' + $icon-name );
+	fill: $fill;
 	background-repeat: no-repeat;
-	background-size: cover;
 }
 
 /// Use rem values with fallback

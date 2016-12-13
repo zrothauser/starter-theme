@@ -1,8 +1,6 @@
 body {
   background: #ffffff;
-  font-family: Helvetica, Arial, sans-serif; }
-  .main-font-loaded body {
-    font-family: "Open Sans", Helvetica, Arial, sans-serif; }
+  font-family: "Open Sans", Helvetica, Arial, sans-serif; }
 
 .entry-content p {
   margin: 0 0 12.5px; }

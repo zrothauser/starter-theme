@@ -9,7 +9,7 @@
 
 .b-header-menu__item {
 	display: inline;
-	@include font-title-alt;
+	@include font-title;
 	text-transform: uppercase;
 	@include rem(font-size, 14px);
 
