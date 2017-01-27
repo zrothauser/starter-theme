@@ -16,6 +16,8 @@ module.exports = {
 			'assets/js/src/svg.js',
 
 			// Other JS functionality
+			'assets/js/vendor/smooth-scroll.js',
+			'assets/js/src/links.js'
 			'assets/js/src/menu-toggle.js'
 		],
 		dest: 'assets/js/starter-theme.src.js'
