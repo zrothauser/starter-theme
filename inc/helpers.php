@@ -46,28 +46,6 @@ function svg_icon( $name, $options = array() ) {
 }
 
 /**
- * Prints HTML with meta information for the current post-date/time.
- */
-function posted_on() {
-	$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
-	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
-	}
-
-	$time_string = sprintf( $time_string,
-		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() )
-	);
-
-	$posted_on = sprintf(
-		esc_html_x( 'Posted on %s', 'post date', 'starter-theme' ),
-		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-	);
-
-	echo '<span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
-}
-
-/**
  * Displays the social links, with an optional label.
  *
  * @param string $label An optional label to display before the links.
@@ -83,3 +61,55 @@ function display_social_links( $label = false, $mini = true, $color = 'dark' ) {
 	include locate_template( 'template-parts/social-links.php' );
 }
 
+/**
+ * Gets a nicely formatted string for the published date.
+ */
+function post_date() {
+
+	// Get the dates
+	$published_date          = get_the_date( DATE_W3C );
+	$published_date_readable = get_the_date();
+	$modified_date           = get_the_modified_date( DATE_W3C );
+	$modified_date_readable  = get_the_modified_date();
+
+	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+		$has_been_modified = true;
+	}
+
+	ob_start();
+	?>
+
+	<div class="b-post-date">
+		<span class="b-post-date__published">
+			<span class="class="b-post-date__label"><?php esc_html_e( 'Posted on: ' ); ?></span>
+			<a href="<?php echo esc_url( get_the_permalink() ); ?>" class="b-post-date__link">
+				<time
+					datetime="<?php echo esc_attr( $published_date ); ?>"
+					class="b-post-date__date b-post-date__date--published"
+				>
+					<?php echo esc_html( $published_date_readable ); ?>
+				</time>
+			</a>
+		</span>
+
+		<?php if ( isset( $has_been_modified ) && true === $has_been_modified ) : ?>
+			&nbsp;
+			<span class="b-post-date__updated">
+				<span class="class="b-post-date__label"><?php esc_html_e( 'Updated on: ' ); ?></span>
+				<a href="<?php echo esc_url( get_the_permalink() ); ?>" class="b-post-date__link">
+					<time
+						datetime="<?php echo esc_attr( $modified_date ); ?>"
+						class="b-post-date__date b-post-date__date--updated"
+					>
+						<?php echo esc_html( $modified_date_readable ); ?>
+					</time>
+				</a>
+			</span>
+		<?php endif; ?>
+	</div>
+
+	<?php
+	$html = ob_get_contents();
+	ob_end_clean();
+	echo $html; // WPCS: XSS OK.
+}
