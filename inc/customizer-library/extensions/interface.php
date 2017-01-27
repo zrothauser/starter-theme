@@ -6,7 +6,7 @@
  * @author        Devin Price
  */
 
-namespace Misfit\Snapstory\Theme;
+namespace Company_Name\Project_Name\Theme;
 
 /**
  * Configure settings and controls for the theme customizer

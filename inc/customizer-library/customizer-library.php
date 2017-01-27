@@ -13,7 +13,7 @@
  * @see  https://github.com/devinsays/customizer-library
  */
 
-namespace Misfit\Snapstory\Theme;
+namespace Company_Name\Project_Name\Theme;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {

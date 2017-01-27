@@ -6,7 +6,7 @@
  * @author		Devin Price, The Theme Foundry
  */
 
-namespace Misfit\Snapstory\Theme;
+namespace Company_Name\Project_Name\Theme;
 
 /**
  * Sanitize a string to allow only tags in the allowedtags array.

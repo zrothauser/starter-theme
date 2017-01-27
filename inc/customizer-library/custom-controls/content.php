@@ -6,11 +6,13 @@
  * @author		Devin Price
  */
 
-if ( ! class_exists( 'WP_Customize_Control' ) ) {
-	return NULL;
+namespace Company_Name\Project_Name\Theme;
+
+if ( ! class_exists( '\WP_Customize_Control' ) ) {
+	return null;
 }
 
-class Customizer_Library_Content extends WP_Customize_Control {
+class Customizer_Library_Content extends \WP_Customize_Control {
 
 	// Whitelist content parameter
 	public $content = '';
@@ -46,5 +48,4 @@ class Customizer_Library_Content extends WP_Customize_Control {
 		}
 
 	}
-
 }
