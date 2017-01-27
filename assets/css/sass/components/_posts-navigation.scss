@@ -1,5 +1,7 @@
+// Doesn't use BEM class names due WordPress default markup
+
 .posts-navigation {
-	margin-bottom: $y-gutter;
+	margin-bottom: $gutter;
 
 	.nav-links {
 		display: flex;
@@ -10,8 +12,7 @@
 		text-align: left;
 
 		a:before {
-			content: '\2039';
-			margin-right: 0.5em;
+			content: '\2039\00a0'; // arrow and space
 		}
 	}
 
@@ -20,8 +21,7 @@
 		text-align: right;
 
 		a:after {
-			content: '\203A';
-			margin-left: 0.5em;
+			content: '\00a0\203A'; // space and arrow
 		}
 	}
 }

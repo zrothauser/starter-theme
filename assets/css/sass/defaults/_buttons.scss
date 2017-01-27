@@ -4,18 +4,24 @@ input[type="reset"],
 input[type="submit"],
 .button {
 	display: inline-block;
-	margin: 0 1em;
-	color: $black;
-	text-transform: uppercase;
-	font-weight: 700;
+	padding: 0.25em 1em;
+	font-weight: 400;
 	letter-spacing: 0.05em;
+	color: $color__button;
+	border: 1px solid $color__border-button;
+	background: $white;
+	transition: 0.2s color, 0.2s border-color;
+	text-transform: uppercase;
+	@include font-body;
+	cursor: pointer;
 
 	&:visited {
-		color: $black;
+		color: $color__button;
 	}
 
 	&:hover,
 	&:focus {
-		background: $pink;
+		color: $color__border-button-hover;
+		border-color: $color__border-button-hover;
 	}
 }

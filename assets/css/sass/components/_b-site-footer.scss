@@ -2,36 +2,31 @@
 	clear: both;
 	width: 100%;
 	color: $white;
+	background-color: $grey-dark;
+	padding: $gutter $half-gutter;
 }
 
 .b-site-footer__container {
-	display: flex;
-	justify-content: space-between;
-	flex-direction: column;
-	padding: $y-gutter $half-x-gutter;
-
-	@include mq(large) {
-		flex-direction: row;
-	}
+	margin: 0 auto;
+	max-width: $content-width;
 }
 
 .b-site-footer__navigation {
-	@include mq(large) {
-		flex: 0 0 50%;
-	}
+	width: 100%;
+	margin-bottom: $gutter;
 }
 
 .b-site-footer__misc {
-	@include mq(large) {
-		flex: 0 0 220px;
-	}
+	width: 100%;
+	text-align: center;
+}
+
+.b-site-footer__misc .b-social {
+	margin-bottom: $gutter;
 }
 
 .b-sitefooter__copyright {
+	width: 100%;
 	font-size: 14px;
 	text-align: center;
-
-	@include mq(large) {
-		text-align: right;
-	}
 }

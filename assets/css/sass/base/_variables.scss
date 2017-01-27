@@ -1,41 +1,42 @@
 // Colors
-$pink:           #fa4d69;
-$light-pink:     #fcb9b2;
-$off-pink:       #e9616a;
-$off-light-pink: #fe9d8e;
-$blue:           #73e7ef;
-$light-blue:     #c7f5f9;
-$gold:           #f6ad46;
-$off-white:      #fbf9f4;
 $black:          #000000;
+$almost-black:   #3c3c3c;
 $white:          #ffffff;
-$grey:           #c2c2c2;
+$off-white:      #f7f5f5;
+$grey-light:     #ccc9c9;
+$grey:           #a79b9b;
+$grey-dark:      #4c4a4a;
+
+$red:            #e04539;
+$gold:           #f6ad46;
+$blue-light:     #e5ecf1;
 
 $color__background-body:   $white;
 $color__background-screen: $white;
 $color__background-pre:    $black;
 $color__background-ins:    $off-white;
 
-$color__text-screen:      $gold;
-$color__text-input:       $black;
-$color__text-input-focus: $black;
-$color__link:             $pink;
-$color__link-visited:     $pink;
-$color__link-hover:       $light-pink;
-$color__text-main:        $black;
+$color__text-screen:      $almost-black;
+$color__text-input:       $almost-black;
+$color__text-input-focus: $almost-black;
+$color__link:             $red;
+$color__link-visited:     $red;
+$color__link-hover:       lighten($red, 20%);
+$color__text-main:        $almost-black;
 
-$color__border-button:       $pink;
-$color__border-button-hover: $light-pink;
-$color__border-button-focus: $light-pink;
-$color__border-input:        $light-pink;
-$color__border-abbr:         $black;
+$color__button:              $almost-black;
+$color__button-hover:        darken($gold, 20%);
+$color__border-button:       $almost-black;
+$color__border-button-hover: darken($gold, 20%);
+$color__border-input:        $blue-light;
+$color__border-abbr:         $almost-black;
 
 // Typography
-$font__main--fallback:   Helvetica, Arial, sans-serif; // replace with a real font stack
-$font__main:             'Open Sans', Helvetica, Arial, sans-serif;
+$font__main--fallback:   Helvetica, Arial, sans-serif;
+$font__main:             'Source Sans Pro', Arial, sans-serif;
 
-$font__title--fallback:  Helvetica, Arial, sans-serif; // replace with a real font stack
-$font__title:            'Open Sans', Helvetica, Arial, sans-serif;
+$font__title--fallback:  Helvetica, Arial, sans-serif;
+$font__title:            'Source Sans Pro', Arial, sans-serif;
 
 $font__code:             Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font__pre:              "Courier 10 Pitch", Courier, monospace;
@@ -46,7 +47,8 @@ $base_font__size:        16px;
 // MQ
 $mq-breakpoints: (
 	smallest: 320px,
-	small: 480px,
+	small: 400px,
+	small-medium: 600px,
 	wp-mobile-admin-bar: 600px,
 	medium: 768px,
 	wp-desktop-admin-bar:782px,
@@ -55,17 +57,13 @@ $mq-breakpoints: (
 );
 
 // Site width
-$full-width:    1170px;
+$full-width:    1000px;
 $content-width: 780px;
 $small-width:   550px;
 
 // Grid units
-$x-gutter:          30px;
-$half-x-gutter:     (0.5 * $x-gutter);
-$x-gutter-and-half: (1.5 * $x-gutter);
-$x-gutter-double:   (2 * $x-gutter);
-
-$y-gutter:          25px;
-$half-y-gutter:     (0.5 * $y-gutter);
-$y-gutter-and-half: (1.5 * $y-gutter);
-$y-gutter-double:   (2 * $y-gutter);
+$gutter:          32px;
+$quarter-gutter:  (0.25 * $gutter);
+$half-gutter:     (0.5 * $gutter);
+$gutter-and-half: (1.5 * $gutter);
+$gutter-double:   (2 * $gutter);

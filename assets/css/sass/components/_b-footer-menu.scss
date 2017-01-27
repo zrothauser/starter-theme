@@ -1,0 +1,28 @@
+.b-footer-menu {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-align: center;
+}
+
+.b-footer-menu__item {
+	display: block;
+	font-size: 20px;
+	margin: 0.5em 0;
+	padding: 0 1em;
+
+	@include mq(small-medium) {
+		margin: 0;
+		display: inline-block;
+	}
+}
+
+.b-footer-menu__item a {
+	color: $white;
+	text-decoration: none;
+
+	&:hover,
+	&:focus {
+		text-decoration: underline;
+	}
+}

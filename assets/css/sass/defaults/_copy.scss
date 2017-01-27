@@ -3,14 +3,15 @@ body {
     @include font-body;
 }
 
-.entry-content {
-	p {
-		margin: 0 0 $half-y-gutter;
+p {
+	margin: 0 0 $half-gutter;
 
-		&:last-child {
-			margin-bottom: 0;
-		}
+	&:last-child {
+		margin-bottom: 0;
 	}
+}
+
+.entry-content {
 
 	dfn,
 	cite,
@@ -20,11 +21,11 @@ body {
 	}
 
 	blockquote {
-		margin: 0 $half-y-gutter;
+		margin: 0 $half-gutter;
 	}
 
 	address {
-		margin: 0 0 $half-y-gutter;
+		margin: 0 0 $half-gutter;
 	}
 
 	dt {
@@ -72,6 +73,6 @@ body {
 
 	ul,
 	ol {
-		margin: 0 0 $half-y-gutter 1em;
+		margin: 0 0 $half-gutter 1em;
 	}
 }

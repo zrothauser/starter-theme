@@ -1,17 +1,18 @@
 // Disables our JS font loader, so we can use web fonts in the editor
 $use_font_loader: false;
 
+// Base - variables, mixins, fonts, reset
 @import 'base/variables';
+@import 'base/mixins';
+@import 'base/mq';
 
-@import 'mixins/mixins';
-@import 'mixins/mq';
-
-@import 'base/fonts';
-
+// Default styles
 @import 'defaults/copy';
 @import 'defaults/tables';
 @import 'defaults/buttons';
 @import 'defaults/alignments';
 @import 'defaults/media';
 @import 'defaults/links';
-@import 'components/post';
+
+// Components
+@import 'components/b-entry-content';

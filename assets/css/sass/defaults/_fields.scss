@@ -12,18 +12,21 @@ input[type="week"],
 input[type="time"],
 input[type="datetime"],
 input[type="datetime-local"],
-input[type="color"] {
+input[type="color"],
+textarea {
 	border: 1px solid $grey;
 	padding: 0.25em 0.5em;
+	color: $color__text-input;
+	background: $white;
+	@include font-body;
 
 	&:focus,
 	&:hover {
-		border-color: $pink;
+		border-color: $color__text-input-focus;
 		outline: 0;
 	}
 }
 
 textarea {
-	padding: 0.25em;
 	width: 100%;
 }

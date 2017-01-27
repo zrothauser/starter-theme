@@ -1,3 +1,11 @@
 .b-entry-footer {
-	margin-top: $y-gutter;
+	margin-top: $gutter;
+}
+
+.b-entry-footer__categories {
+	margin-bottom: $gutter;
+}
+
+.b-entry-footer__tags {
+	margin-bottom: $gutter;
 }

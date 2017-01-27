@@ -114,10 +114,10 @@
 
 // Wrappers for font-fallback() for all of the fonts used in the theme
 @mixin font-body {
-	@include font-fallback($font__main--fallback, $font__main, 'main-font-loaded');
+	@include font-fallback($font__main--fallback, $font__main, 'fonts-loaded');
 }
 
 @mixin font-title {
-	@include font-fallback($font__title--fallback, $font__title, 'title-font-loaded');
+	@include font-fallback($font__title--fallback, $font__title, 'fonts-loaded');
 }
 

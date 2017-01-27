@@ -1,0 +1,81 @@
+// Doesn't use BEM class names due to plugin markup
+.ccf-form-wrapper {
+	margin: 0 auto;
+}
+
+.ui-datepicker {
+	display: none;
+}
+
+.ccf-form {
+	@include rem(font-size, 16px);
+
+	> .field-hide {
+		display: none;
+	}
+
+	> .form-group.city input.field-input {
+		@include mq(medium) {
+			margin-bottom: $half-gutter;
+		}
+	}
+
+	.main-label {
+		display: flex; // To fix CCF's markup of placing the "required" indicator before the text
+		margin-bottom: 0;
+		font-weight: 400;
+		letter-spacing: 0.05em;
+		@include rem(font-size, 14px);
+	}
+
+	.main-label .required {
+		order: 2;
+		padding: 0 0 0 0.25em;
+		color: $red;
+	}
+
+	input.field-input {
+		display: block;
+		width: 100%;
+		margin-bottom: $half-gutter;
+	}
+
+	input.field-input[type="checkbox"] {
+		display: inline-block;
+		width: auto;
+		margin: 0 0.5em 0 0;
+	}
+
+	select.field-input {
+		display: block;
+		width: 100%;
+		margin-bottom: $half-gutter;
+	}
+
+	.form-submit {
+		margin-top: $half-gutter;
+		text-align: center;
+		font-weight: 700;
+	}
+
+	.error.required-error {
+		margin-bottom: $half-gutter;
+		padding: 0.25em 0.5em;
+		width: 100%;
+		color: $red;
+		border: 2px solid $red;
+	}
+
+	.loading-img {
+		vertical-align: middle;
+		display: inline-block;
+		border: 0;
+		opacity: 0;
+		float: none;
+		margin: 0 0 0 6px;
+	}
+}
+
+.ccf-form-frame {
+	display: none;
+}

@@ -1,0 +1,22 @@
+.b-page-header {
+	width: 100%;
+	margin: 0 0 $gutter;
+}
+
+.b-page-header__with-image {
+	margin: -#{$gutter} 0 $gutter;
+}
+
+.b-page-header .wp-post-image {
+	// Doesn't use BEM class naming, because of WP default class names
+	display: block;
+	margin: 0 0 $gutter;
+	width: 100%;
+}
+
+.b-page-header__title {
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 $half-gutter;
+	max-width: $content-width;
+}

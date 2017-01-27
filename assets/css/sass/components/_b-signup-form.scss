@@ -1,0 +1,24 @@
+.b-signup-form {
+	display: block;
+	width: 100%;
+	margin: $gutter 0;
+}
+
+.b-signup-form__container {
+	display: block;
+	margin: 0 auto;
+	padding: $half-gutter;
+	width: 100%;
+	max-width: 400px;
+	background: $off-white;
+	border: 1px solid $grey-dark;
+}
+
+.b-signup-form__cta {
+	text-align: center;
+	line-height: 1.2;
+	margin-bottom: $half-gutter;
+	font-size: 20px;
+	font-weight: 700;
+	color: $almost-black;
+}

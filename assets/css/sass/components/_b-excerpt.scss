@@ -1,0 +1,38 @@
+.b-excerpt {
+	@include clearfix;
+	margin-bottom: $gutter;
+	padding-bottom: $gutter;
+	border-bottom: 1px solid $grey;
+}
+
+.b-excerpt__main {
+	max-width: calc(100% - 200px);
+	float: left;
+}
+
+.b-excerpt__title {
+	margin: 0;
+}
+
+.b-excerpt__title__link,
+.b-excerpt__title__link:visited {
+	text-decoration: none;
+}
+
+.b-excerpt__sticky-icon {
+	width: 1.2em;
+    height: 1.2em;
+    display: inline-block;
+    vertical-align: top;
+    fill: grey;
+}
+
+.b-excerpt__content {
+	margin-bottom: $quarter-gutter;
+}
+
+.b-excerpt__image {
+	max-width: 200px;
+	float: right;
+	padding-left: $half-gutter;
+}
