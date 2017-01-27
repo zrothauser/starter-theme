@@ -8,7 +8,7 @@ module.exports = {
 	dist: {
 		options: {
 			map: false,
-			use: [
+			processors: [
 				require( 'autoprefixer' )({ browsers: ['last 2 versions', 'ie 10'] }),
 				require( 'postcss-svg-fragments' )()
 			]
