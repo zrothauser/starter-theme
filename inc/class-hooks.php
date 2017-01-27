@@ -28,6 +28,9 @@ class Hooks {
 		// Simplify WordPress functionality
 		add_action( '_admin_menu',        array( $this, 'remove_theme_editor' ), 1 );
 		add_action( 'customize_register', array( $this, 'remove_custom_css_control' ) );
+
+		// ACF/Front-end performance
+		add_filter( 'option_active_plugins', array( $this, 'disable_acf_on_frontend' ) );
 	}
 
 	/**
@@ -47,6 +50,9 @@ class Hooks {
 			'gallery',
 			'caption',
 		) );
+
+		// Image Sizes
+		// add_image_size( 'excerpt', 300, 300 );
 	}
 
 	/**
@@ -70,6 +76,20 @@ class Hooks {
 	 * Enqueue styles.
 	 */
 	public function styles() {
+
+		// Remove Custom Contact Forms' styling
+		wp_dequeue_style( 'ccf-form' );
+		wp_dequeue_style( 'ccf-jquery-ui-css' );
+
+		// Fonts
+		wp_enqueue_style(
+			'source-sans-pro',
+			'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i',
+			array(),
+			THEME_VERSION
+		);
+
+		// Theme Styling
 		wp_enqueue_style(
 			'starter-theme-style',
 			ASSETS_DIRECTORY . 'css/starter-theme.min.css',
@@ -82,6 +102,11 @@ class Hooks {
 	 * Enqueue scripts.
 	 */
 	public function scripts() {
+
+		// Remove jQuery-Migrate
+		wp_dequeue_script( 'jquery-migrate' );
+
+		// Load theme JS
 		wp_enqueue_script(
 			'starter-theme-js',
 			ASSETS_DIRECTORY . 'js/starter-theme.min.js',
@@ -106,7 +131,7 @@ class Hooks {
 	 * @return int (Maybe) modified excerpt length.
 	 */
 	public function custom_excerpt_length( $length ) {
-		return 200;
+		return 50;
 	}
 
 	/**
@@ -147,5 +172,24 @@ class Hooks {
 	 */
 	public function remove_custom_css_control( $wp_customize ) {
 		$wp_customize->remove_control( 'custom_css' );
+	}
+
+	/**
+	 * Prevent the ACF plugin from loading on the front-end for performance.
+	 */
+	public function disable_acf_on_frontend( $plugins ) {
+
+		// Don't run on the admin side
+		if ( is_admin() ) {
+			return $plugins;
+		}
+
+		foreach ( $plugins as $i => $plugin ) {
+			if ( 'advanced-custom-fields-pro/acf.php' === $plugin ) {
+				unset( $plugins[ $i ] );
+			}
+		}
+
+		return $plugins;
 	}
 }
