@@ -4,16 +4,22 @@
  */
 namespace Company_Name\Project_Name\Theme;
 
+use Company_Name\Project_Name\Theme\Helpers;
+
 get_header(); ?>
 
-	<header class="b-page-header <?php echo has_post_thumbnail() ? ' b-page-header__with-image' : ''; ?>">
+	<header class="b-post-header">
+		<h1 class="b-post-header__title">
+			<?php single_post_title(); ?>
+		</h1>
+
+		<div class="b-post-header__meta">
+			<?php Helpers\post_date(); ?>
+		</div>
+
 		<?php if ( has_post_thumbnail() ) : ?>
 			<?php the_post_thumbnail( 'full' ); ?>
 		<?php endif; ?>
-
-		<h1 class="b-page-header__title">
-			<?php single_post_title(); ?>
-		</h1>
 	</header>
 
 	<?php get_template_part( 'template-parts/featured-image' ); ?>

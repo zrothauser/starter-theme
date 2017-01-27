@@ -7,8 +7,12 @@ define( 'ASSETS_DIRECTORY', get_template_directory_uri() . '/assets/' );
 // Include main theme file
 include __DIR__ . '/inc/class-starter-theme.php';
 
+// Include helper library for the theme customizer.
+require __DIR__ . '/inc/customizer-library/customizer-library.php';
+
 // Include various theme hooks
 include __DIR__ . '/inc/class-hooks.php';
+include __DIR__ . '/inc/class-customizer-options.php';
 
 // Include theme components
 include __DIR__ . '/inc/class-bem-walker.php';

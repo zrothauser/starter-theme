@@ -11,30 +11,41 @@ namespace Company_Name\Project_Name\Theme;
 
 	<div class="b-entry-content">
 		<?php
-		if ( is_search() || is_home() || is_archive() ) {
-			the_excerpt();
-			?>
-			<a href="<?php echo esc_url( get_permalink() ); ?>" class="button -uppercase">Read More</a>
-			<?php
-		} else {
-			the_content();
+		the_content();
 
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'starter-theme' ),
-				'after'  => '</div>',
-			) );
-		}
+		wp_link_pages( array(
+			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'starter-theme' ),
+			'after'  => '</div>',
+		) );
+
+		get_template_part( 'template-parts/sign-up-form' );
 		?>
 	</div><!-- .entry-content -->
 
 	<footer class="b-entry-footer">
 		<?php
-		if ( ! ( is_search() || is_home() || is_archive() || is_front_page() ) ) {
-			$tags_list = get_the_tag_list( '', esc_html__( ', ', 'starter-theme' ) );
-			if ( $tags_list ) {
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged:  %1$s', 'starter-theme' ) . '</span>', $tags_list ); // WPCS: XSS OK.
-			}
+		/* translators: used between list items, there is a space after the comma */
+		$separate_meta = __( ', ', 'starter-theme' );
+
+		// Display categories
+		$categories_list = get_the_category_list( $separate_meta );
+		if ( ! empty( $categories_list ) ) {
+			echo '<div class="b-entry-footer__categories">';
+			esc_html_e( 'Categorized: ', 'starter-theme' );
+			echo '<br>';
+			echo $categories_list; // WPCS: XSS OK.
+			echo '</div>';
+		}
+
+		// Display tags
+		$tags_list = get_the_tag_list( '', $separate_meta );
+		if ( ! empty( $tags_list ) ) {
+			echo '<div class="b-entry-footer__tags">';
+			esc_html_e( 'Tagged: ', 'starter-theme' );
+			echo '<br>';
+			echo $tags_list; // WPCS: XSS OK.
+			echo '</div>';
 		}
 		?>
 	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
+</article><!-- .b-post -->

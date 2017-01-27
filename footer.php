@@ -12,22 +12,23 @@ namespace Company_Name\Project_Name\Theme;
 	<footer class="b-site-footer" role="contentinfo">
 		<div class="b-site-footer__container">
 
-			<nav id="footer-navigation" class="b-footer-navigation" role="navigation">
+			<nav id="footer-navigation" class="b-site-footer__navigation" role="navigation">
 				<?php wp_nav_menu( array(
-					'theme_location'  => 'header-menu',
+					'theme_location'  => 'primary',
 					'container'       => false,
-					'container_class' => 'b-site-footer__navigation',
 					'menu_class'      => 'b-footer-menu',
 					'depth'           => 1,
 					'walker'          => new Bem_Menu_Walker,
 				) ); ?>
-			</nav><!-- .main-navigation -->
+			</nav><!-- .b-footer-navigation -->
 
 			<div class="b-site-footer__misc">
 				<?php Helpers\display_social_links( false, false, 'light' ); ?>
 
-				<div class="b-sitefooter__copyright">Starter Theme &copy; <?php echo esc_html( date( 'Y' ) ); ?></div>
-			</div>
+				<div class="b-sitefooter__copyright">
+					&copy; <?php echo esc_html( date( 'Y' ) ); ?>
+				</div>
+			</div><!-- .b-site-footer__misc -->
 
 		</div><!-- .b-site-footer__container -->
 	</footer><!-- .b-site-footer -->

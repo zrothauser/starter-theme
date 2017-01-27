@@ -26,11 +26,22 @@ namespace Company_Name\Project_Name\Theme;
 
 			<?php the_custom_logo(); ?>
 
-			<button class="b-header__toggle" id="js-menu-toggle" aria-controls="menu" aria-expanded="false">Menu</button>
+			<button
+				class="b-header__toggle"
+				id="js-menu-toggle"
+				aria-controls="menu"
+				aria-expanded="false"
+			>
+				Menu
+			</button>
 
-			<nav id="js-header-navigation" class="b-header-navigation" role="navigation">
+			<nav
+				id="js-header-navigation"
+				class="b-header-navigation"
+				role="navigation"
+			>
 				<?php wp_nav_menu( array(
-					'theme_location'  => 'header-menu',
+					'theme_location'  => 'primary',
 					'menu_id'         => 'js-header-menu',
 					'container'       => false,
 					'menu_class'      => 'b-header-menu',

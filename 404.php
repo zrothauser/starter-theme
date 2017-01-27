@@ -10,24 +10,23 @@ namespace Company_Name\Project_Name\Theme;
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+	<header class="b-page-header">
+		<h1 class="b-page-header__title">
+			<?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'starter-theme' ); ?>
+		</h1>
+	</header>
 
-			<section class="error-404 not-found">
-				<header class="page-header">
-					<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'starter-theme' ); ?></h1>
-				</header><!-- .page-header -->
+	<div id="primary" class="b-content-area">
+		<main id="main" class="b-main" role="main">
 
-				<div class="page-content">
-					<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one a search?', 'starter-theme' ); ?></p>
+			<p>
+				<?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one a search?', 'starter-theme' ); ?>
+			</p>
 
-					<?php get_search_form(); ?>
+			<?php get_search_form(); ?>
 
-				</div><!-- .page-content -->
-			</section><!-- .error-404 -->
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
+		</main><!-- .b-main -->
+	</div><!-- .b-content-area -->
 
 <?php
 get_footer();
