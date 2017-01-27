@@ -15,7 +15,7 @@ module.exports = {
 			'assets/css/starter-theme.min.css': 'assets/css/sass/starter-theme.scss',
 		},
 		options: {
-			imagePath:   'assets/img',
+			imagePath:   'assets/images',
 			outputStyle: 'compressed',
 			sourceMap:   false
 		},
