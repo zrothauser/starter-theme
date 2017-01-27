@@ -10,7 +10,7 @@ class Breadcrumbs {
 	 * Set up WordPress hooks
 	 */
 	public function register_hooks() {
-		add_action( 'cecil_breadcrumbs', array( $this, 'display_breadcrumbs' ) );
+		add_action( 'starter_theme_breadcrumbs', array( $this, 'display_breadcrumbs' ) );
 	}
 
 	/**
