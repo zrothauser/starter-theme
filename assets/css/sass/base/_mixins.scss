@@ -14,7 +14,7 @@
 //
 // @param {string} $icon-name - Title of the SVG icon
 @mixin svg-icon($icon-name, $fill) {
-	background-image: url('../svg/symbol-defs.svg#icon-' + $icon-name );
+	background-image: url('../svg/symbol-defs.svg#' + $icon-name );
 	fill: $fill;
 	background-repeat: no-repeat;
 }
