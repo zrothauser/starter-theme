@@ -5,7 +5,7 @@ module.exports = {
        },
        options: {
            cleanup: true,
-           prefix : 'icon-'
+           prefix : ''
        }
    }
 };

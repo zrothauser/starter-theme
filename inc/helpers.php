@@ -12,7 +12,7 @@ namespace Company_Name\Project_Name\Theme\Helpers;
  * @return string URL of SVG icon
  */
 function svg_url( $name, $options = array() ) {
-	return $href = ASSETS_DIRECTORY . '/svg/symbol-defs.svg#icon-' . $name;
+	return trailingslashit( ASSETS_DIRECTORY ) . 'svg/symbol-defs.svg#' . $name;
 }
 
 /**
