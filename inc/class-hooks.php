@@ -103,13 +103,15 @@ class Hooks {
 	 */
 	public function scripts() {
 
+		$type = ( defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ) ? 'src' : 'min';
+
 		// Remove jQuery-Migrate
 		wp_dequeue_script( 'jquery-migrate' );
 
 		// Load theme JS
 		wp_enqueue_script(
 			'starter-theme-js',
-			ASSETS_DIRECTORY . 'js/starter-theme.min.js',
+			ASSETS_DIRECTORY . "js/starter-theme.{$type}.js",
 			array( 'underscore' ),
 			THEME_VERSION,
 			true
