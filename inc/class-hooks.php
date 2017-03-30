@@ -25,6 +25,9 @@ class Hooks {
 		// Editor styles
 		add_action( 'mce_css', array( $this, 'editor_styles' ) );
 
+		// Menus
+		add_filter( 'walker_nav_menu_start_el', array( $this, 'nav_menu_social_icons' ), 10, 4 );
+
 		// Simplify WordPress functionality
 		add_action( '_admin_menu',        array( $this, 'remove_theme_editor' ), 1 );
 		add_action( 'customize_register', array( $this, 'remove_custom_css_control' ) );
@@ -106,7 +109,15 @@ class Hooks {
 		$type = ( defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ) ? 'src' : 'min';
 
 		// Remove jQuery-Migrate
-		wp_dequeue_script( 'jquery-migrate' );
+		wp_deregister_script( 'jquery' );
+		wp_register_script(
+			'jquery',
+			includes_url( '/js/jquery/jquery.js' ),
+			array(),
+			THEME_VERSION,
+			true
+		);
+		wp_enqueue_script( 'jquery' );
 
 		// Load theme JS
 		wp_enqueue_script(
@@ -124,6 +135,9 @@ class Hooks {
 	public function register_menus() {
 		register_nav_menu( 'primary', __( 'Primary Menu', 'starter-theme' ) );
 		register_nav_menu( 'footer', __( 'Footer Menu', 'starter-theme' ) );
+
+		// Social Menu
+		register_nav_menu( 'social', __( 'Social Menu', 'activeprospect' ) );
 	}
 
 	/**
@@ -193,5 +207,42 @@ class Hooks {
 		}
 
 		return $plugins;
+	}
+
+	/**
+	 * Display SVG icons in social links menu.
+	 *
+	 * @param  string  $item_output The menu item output.
+	 * @param  WP_Post $item        Menu item object.
+	 * @param  int     $depth       Depth of the menu.
+	 * @param  array   $args        wp_nav_menu() arguments.
+	 * @return string  $item_output The menu item output with social icon.
+	 */
+	function nav_menu_social_icons( $item_output, $item, $depth, $args ) {
+
+		// Get supported social icons.
+		$social_icons = array(
+			'facebook.com'    => 'social-facebook',
+			'instagram.com'   => 'social-instagram',
+			'twitter.com'     => 'social-twitter',
+			'linkedin.com'    => 'social-linkedin',
+		);
+
+		// Change SVG icon inside social links menu if there is supported URL.
+		if ( 'social' !== $args->theme_location ) {
+			return $item_output;
+		}
+
+		foreach ( $social_icons as $attr => $value ) {
+			if ( false !== strpos( $item_output, $attr ) ) {
+				$item_output = str_replace(
+					$args->link_after,
+					'</span>' . Helpers\get_svg_icon( esc_attr( $value ), array( 'class' => 'b-footer-menu__item__icon' ) ),
+					$item_output
+				);
+			}
+		}
+
+		return $item_output;
 	}
 }
