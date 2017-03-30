@@ -56,6 +56,7 @@ class Bem_Menu_Walker extends \Walker_Nav_Menu {
 	 */
 	public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+
 		$this->prepare_el_classes( $item, $args, $depth );
 		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 
@@ -160,12 +161,17 @@ class Bem_Menu_Walker extends \Walker_Nav_Menu {
 			$classes[] = $block . '__item--parent';
 		}
 
-		if ( in_array( 'menu-item-has-children', (array) $item->classes ) ) {
+		if ( in_array( 'menu-item-has-children', (array) $item->classes, true ) ) {
 			$classes[] = $block . '__item--has-children';
 		}
 
 		if ( $depth ) {
 			$classes[] = $block . '__item--child';
+		}
+
+		// Look for any custom classes
+		if ( ! empty( $item->classes ) && is_array( $item->classes ) && ! empty( $item->classes[0] ) ) {
+			$classes[] = $item->classes[0];
 		}
 
 		$item->classes = $classes;
