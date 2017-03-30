@@ -23,8 +23,6 @@ namespace Company_Name\Project_Name\Theme;
 			</nav><!-- .b-footer-navigation -->
 
 			<div class="b-site-footer__misc">
-				<?php Helpers\display_social_links( false, false, 'light' ); ?>
-
 				<div class="b-sitefooter__copyright">
 					&copy; <?php echo esc_html( date( 'Y' ) ); ?>
 				</div>

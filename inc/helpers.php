@@ -12,7 +12,7 @@ namespace Company_Name\Project_Name\Theme\Helpers;
  * @return string URL of SVG icon
  */
 function svg_url( $name, $options = array() ) {
-	return trailingslashit( ASSETS_DIRECTORY ) . 'svg/symbol-defs.svg#' . $name;
+	return trailingslashit( ASSETS_DIRECTORY ) . 'svg/symbol-defs.svg?ver=' . THEME_VERSION . '#' . $name;
 }
 
 /**
@@ -43,22 +43,6 @@ function get_svg_icon( $name, $options = array() ) {
  */
 function svg_icon( $name, $options = array() ) {
 	echo get_svg_icon( $name, $options ); // xss safe
-}
-
-/**
- * Displays the social links, with an optional label.
- *
- * @param string $label An optional label to display before the links.
- * @param bool   $mini  True to display small icons, false to display the default size icons.
- * @param string $color One of three values: "light", "dark", "bright". Actual color is determined by CSS.
- */
-function display_social_links( $label = false, $mini = true, $color = 'dark' ) {
-
-	$facebook_link  = get_theme_mod( 'facebook-url', false );
-	$twitter_link   = get_theme_mod( 'twitter-url', false );
-	$instagram_link = get_theme_mod( 'instagram-url', false );
-
-	include locate_template( 'template-parts/social-links.php' );
 }
 
 /**
@@ -122,4 +106,52 @@ function post_date() {
 	$html = ob_get_contents();
 	ob_end_clean();
 	echo $html; // WPCS: XSS OK.
+}
+
+/**
+ * Displays a link to the Primary Category, if Yoast is enabled. If not, displays the categories.
+ *
+ * @param int $post_id  ID of the current post (defaults to current post)
+ */
+function primary_category( $post_id = null ) {
+
+	if ( empty( $post_id ) ) {
+		$post_id = get_the_ID();
+	}
+
+	$category = get_the_category();
+
+	if ( empty( $category ) ) {
+		return;
+	}
+
+	$category_display = '';
+	$category_link = '';
+
+	if ( class_exists( '\WPSEO_Primary_Term' ) ) {
+		$wpseo_primary_term = new \WPSEO_Primary_Term( 'category', get_the_id() );
+		$wpseo_primary_term = $wpseo_primary_term->get_primary_term();
+		$term = get_term( $wpseo_primary_term );
+
+		if ( is_wp_error( $term ) ) {
+			// Default to first category (not Yoast) if an error is returned
+			$category_display = $category[0]->name;
+			$category_link = get_category_link( $category[0]->term_id );
+		} else {
+			// Yoast Primary category
+			$category_display = $term->name;
+			$category_link = get_category_link( $term->term_id );
+		}
+	} else {
+		// Default, display the first category in WP's list of assigned categories
+		$category_display = $category[0]->name;
+		$category_link = get_category_link( $category[0]->term_id );
+	}
+
+	// Display category
+	if ( ! empty( $category_display ) ) :
+		echo '<span class="post-category">';
+		echo '<a href="' . esc_url( $category_link ) . '">' . esc_attr( $category_display ) . '</a>';
+		echo '</span>';
+	endif;
 }
