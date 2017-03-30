@@ -19,7 +19,7 @@ get_header(); ?>
 		if ( have_posts() ) : ?>
 			<?php
 			while ( have_posts() ) : the_post();
-				get_template_part( 'template-parts/content', 'search' );
+				get_template_part( 'template-parts/content', 'excerpt' );
 			endwhile;
 
 			the_posts_navigation();
