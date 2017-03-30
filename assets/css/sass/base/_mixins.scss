@@ -121,3 +121,20 @@
 	@include font-fallback($font__title--fallback, $font__title, 'fonts-loaded');
 }
 
+//
+// Displays an arrow after an element, for use in dropdown menus or a form that drops down
+//
+@mixin arrow-after($color: $grey) {
+	&:after {
+		display: inline-block;
+		content: '';
+		width: 0.7em;
+		height: 0.7em;
+		background-size: contain;
+		vertical-align: middle;
+		margin-left: 0.5em;
+		@include svg-icon('symbol-chevron-down', $color);
+		transition: transform 0.2s;
+	}
+}
+

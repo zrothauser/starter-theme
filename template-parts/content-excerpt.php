@@ -26,7 +26,7 @@ if ( has_post_thumbnail() ) {
 			</a>
 
 			<?php if ( is_sticky() ) : ?>
-				<?php echo Helpers\get_svg_icon( 'thumbtack', array( 'class' => 'b-excerpt__sticky-icon' ) ); // WPCS: XSS OK. ?>
+				<?php echo Helpers\get_svg_icon( 'symbol-thumbtack', array( 'class' => 'b-excerpt__sticky-icon' ) ); // WPCS: XSS OK. ?>
 			<?php endif; ?>
 		</h2>
 

@@ -5,27 +5,116 @@
 
 .b-header-menu__item {
 	display: inline;
+	position: relative;
 	@include font-title;
 	@include rem(font-size, 14px);
 
 	@include mq($until: medium) {
 		text-align: center;
-		padding: 0 0.75em;
+		padding: 0 $half-gutter;
 	}
 
 	@include mq(medium) {
-		padding: 0 0 0 1em;
+		margin: 0 0 0 $half-gutter;
+		padding: $half-gutter;
 	}
 
 	a {
 		text-decoration: none;
 		color: $black;
 		text-transform: uppercase;
+		letter-spacing: 0.1em;
 		transition: 0.2s;
+		font-weight: 700;
 
 		&:hover,
-		&:focus {
+		&:focus,
+		&:active {
 			color: $red;
 		}
+	}
+}
+
+.b-header-menu__item--has-children:not(.b-header-menu__item--child) > a {
+	@include arrow-after;
+
+	&:after {
+		@include mq($until: medium) {
+			float: right;
+		}
+	}
+}
+
+.b-header-menu__item--has-children:hover a:after,
+.b-header-menu__item--has-children:focus a:after {
+	@include mq($from: medium) {
+		transform: rotate(180deg);
+	}
+}
+
+.b-header-menu__item--has-children--open a:after {
+	@include mq($until: medium) {
+		transform: rotate(180deg);
+	}
+}
+
+.b-header-menu__item--has-children:not(.b-header-menu__item--child) > .b-header-menu__sub-menu {
+	display: none;
+	margin: 0;
+	padding: 0;
+
+	@include mq(medium) {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 250px;
+		padding: $quarter-gutter;
+		border: 2px solid $black;
+		background: $white;
+	}
+}
+
+.b-header-menu__item--has-children:last-child .b-header-menu__sub-menu {
+	@include mq(medium) {
+		left: auto;
+		right: 0;
+	}
+}
+
+.b-header-menu__item--child {
+	margin: 0;
+	padding: 0;
+
+	@include mq(medium) {
+		display: block;
+		padding: $half-gutter;
+	}
+
+	a {
+		text-transform: none;
+		letter-spacing: 0;
+		font-weight: 400;
+	}
+}
+
+// Second level submenus
+.b-header-menu__item--has-children.b-header-menu__item--child > .b-header-menu__sub-menu {
+	margin: 0;
+	padding: 0 0 0 $quarter-gutter;
+	border: 0;
+}
+
+// Toggle submenus open on hover
+.b-header-menu__item--has-children--open > .b-header-menu__sub-menu {
+	@include mq($until: medium) {
+		display: block;
+		border-top: 1px solid $white;
+	}
+}
+
+.b-header-menu__item--has-children:focus > .b-header-menu__sub-menu,
+.b-header-menu__item--has-children:hover > .b-header-menu__sub-menu {
+	@include mq(medium) {
+		display: block;
 	}
 }
