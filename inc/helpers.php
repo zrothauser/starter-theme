@@ -80,8 +80,18 @@ function post_date() {
 	?>
 
 	<div class="b-post-date">
+		<span class="b-post-date__author">
+			<span class="b-post-date__label"><?php esc_html_e( 'by ' ); ?></span>
+			<a
+				href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"
+				class="b-post-date__link"
+			>
+				<?php echo get_the_author(); ?>
+			</a>
+		</span>
+
 		<span class="b-post-date__published">
-			<span class="class="b-post-date__label"><?php esc_html_e( 'Posted on: ' ); ?></span>
+			<span class="class="b-post-date__label"><?php esc_html_e( 'on ' ); ?></span>
 			<a href="<?php echo esc_url( get_the_permalink() ); ?>" class="b-post-date__link">
 				<time
 					datetime="<?php echo esc_attr( $published_date ); ?>"
