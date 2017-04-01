@@ -24,7 +24,9 @@ namespace Company_Name\Project_Name\Theme;
 	<header class="b-header" role="banner">
 		<div class="b-header__wrapper">
 
-			<?php the_custom_logo(); ?>
+			<div class="b-header__logo">
+				<?php the_custom_logo(); ?>
+			</div>
 
 			<button
 				class="b-header__toggle"

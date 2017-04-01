@@ -25,6 +25,9 @@ class Hooks {
 		// Editor styles
 		add_action( 'mce_css', array( $this, 'editor_styles' ) );
 
+		// Adjust WordPress markup
+		add_filter( 'get_custom_logo', array( $this, 'custom_logo_classes' ), 10, 2 );
+
 		// Menus
 		add_filter( 'walker_nav_menu_start_el', array( $this, 'nav_menu_social_icons' ), 10, 4 );
 
@@ -244,5 +247,18 @@ class Hooks {
 		}
 
 		return $item_output;
+	}
+
+	/**
+	 * Filters the custom logo output.
+	 *
+	 * @param string $html    Custom logo HTML output.
+	 * @param int    $blog_id ID of the blog to get the custom logo for.
+	 */
+	public function custom_logo_classes( $html, $blog_id ) {
+		$html = str_replace( 'class="custom-logo-link"', 'class="b-header__logo__link"', $html );
+		$html = str_replace( 'class="custom-logo"', 'class="b-header__logo__image"', $html );
+
+		return $html;
 	}
 }
