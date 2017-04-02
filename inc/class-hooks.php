@@ -58,7 +58,7 @@ class Hooks {
 		) );
 
 		// Image Sizes
-		// add_image_size( 'excerpt', 300, 300 );
+		add_image_size( 'excerpt', 300, 300 );
 	}
 
 	/**
@@ -109,8 +109,6 @@ class Hooks {
 	 */
 	public function scripts() {
 
-		$type = ( defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ) ? 'src' : 'min';
-
 		// Remove jQuery-Migrate
 		wp_deregister_script( 'jquery' );
 		wp_register_script(
@@ -124,9 +122,17 @@ class Hooks {
 
 		// Load theme JS
 		wp_enqueue_script(
+			'starter-theme-vendor-js',
+			ASSETS_DIRECTORY . 'js/dist/vendor.bundle.js',
+			array(),
+			THEME_VERSION,
+			true
+		);
+
+		wp_enqueue_script(
 			'starter-theme-js',
-			ASSETS_DIRECTORY . "js/starter-theme.{$type}.js",
-			array( 'underscore' ),
+			ASSETS_DIRECTORY . 'js/dist/bundle.js',
+			array( 'starter-theme-vendor-js' ),
 			THEME_VERSION,
 			true
 		);

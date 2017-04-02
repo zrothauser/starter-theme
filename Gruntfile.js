@@ -7,7 +7,7 @@
  * @access public
  * @param  {Object} grunt the grunt object
  */
-module.exports = function( grunt ) {
+module.exports = function(grunt) {
 
 	/**
 	 * Require `load-grunt-tasks`
@@ -17,13 +17,13 @@ module.exports = function( grunt ) {
 	 * loading each task one by one.
 	 *
 	 */
-	require( 'load-grunt-tasks' )( grunt );
+	require('load-grunt-tasks')( grunt );
 
 	/**
 	 * Load grunt tasks defined in the `/tasks` folder.
 	 *
 	 */
-	grunt.loadTasks( 'tasks' );
+	grunt.loadTasks('tasks');
 
 	/**
 	 * Function to load the options for each grunt module
@@ -32,16 +32,16 @@ module.exports = function( grunt ) {
 	 * the object as a grunt option.
 	 *
 	 */
-	var loadConfig = function( path ) {
-		var glob = require( 'glob' ),
+	var loadConfig = function(path) {
+		var glob = require('glob'),
 			object = {},
 			key;
 
-		glob.sync( '*', {
+		glob.sync('*', {
 			cwd: path
-		} ).forEach( function( option ) {
-			key = option.replace( /\.js$/, '' );
-			object[ key ] = require( path + option );
+		}).forEach(function(option) {
+			key = option.replace(/\.js$/, '');
+			object[key] = require(path + option);
 		} );
 
 		return object;
@@ -52,7 +52,7 @@ module.exports = function( grunt ) {
 	 *
 	 */
 	var config = {
-		pkg: grunt.file.readJSON( 'package.json' ),
+		pkg: grunt.file.readJSON('package.json'),
 		env: process.env
 	};
 
@@ -61,18 +61,18 @@ module.exports = function( grunt ) {
 	 *
 	 * @param  {Object} loadConfig('./tasks/options/' runs the `loadConfig` func
 	 */
-	grunt.util._.extend( config, loadConfig( './tasks/' ) );
+	grunt.util._.extend(config, loadConfig('./tasks/'));
 
 	/**
 	 * Initialize the config object
 	 *
 	 */
-	grunt.initConfig( config );
+	grunt.initConfig(config);
 
 	/**
 	 * Register default tasks
 	 */
-	grunt.registerTask( 'js', [ 'jshint', 'concat', 'uglify' ] );
-	grunt.registerTask( 'css', [ 'sass', 'postcss' ] );
-	grunt.registerTask( 'default', [ 'svgstore', 'js', 'css' ] );
+	grunt.registerTask('js', ['webpack']);
+	grunt.registerTask('css', ['sass', 'postcss']);
+	grunt.registerTask('default', ['svgstore', 'js', 'css']);
 };

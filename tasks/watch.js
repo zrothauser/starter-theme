@@ -4,7 +4,7 @@ module.exports = {
 		tasks: ['css'],
 	},
 	js: {
-		files: ['Gruntfile.js', 'assets/js/src/**/*.js', 'assets/js/admin/**/*.js'],
+		files: ['Gruntfile.js', 'assets/js/src/**/*.js'],
 		tasks: ['js'],
 		options: {
 			nospawn: true
