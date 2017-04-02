@@ -3,8 +3,8 @@
  */
 
 function enableMenuToggle() {
-	var siteWrapper        = document.getElementById('wrapper'),
-		mobileToggleButton = document.getElementById('js-menu-toggle');
+	const siteWrapper        = document.getElementById('wrapper');
+	const mobileToggleButton = document.getElementById('js-menu-toggle');
 
 	// Return if the parts we need aren't there
 	if (!mobileToggleButton || !siteWrapper) {
@@ -14,11 +14,11 @@ function enableMenuToggle() {
 	/**
 	 * Toggle the menu from the menu button
 	 */
-	mobileToggleButton.addEventListener('click', function() {
+	mobileToggleButton.addEventListener('click', (event) => {
 		event.preventDefault();
 
-		siteWrapper.classList.toggle( 'b-site-wrapper--menu-open' );
-		mobileToggleButton.classList.toggle( 'b-header__toggle--open' );
+		siteWrapper.classList.toggle('b-site-wrapper--menu-open');
+		mobileToggleButton.classList.toggle('b-header__toggle--open');
 	});
 }
 

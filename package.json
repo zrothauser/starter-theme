@@ -11,7 +11,8 @@
   },
   "scripts": {
     "prebuild": "del-cli assets/js/dist -f",
-    "build": "webpack -d -p"
+    "build": "webpack -d -p",
+    "lint": "eslint js --ext=js,jsx"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.4",
@@ -20,6 +21,12 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-es2015": "^6.24.0",
     "del-cli": "^0.2.1",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
     "glob": "^7.1.1",
     "grunt": "^1.0.0",
     "grunt-contrib-concat": "^1.0.1",

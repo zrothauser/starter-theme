@@ -5,7 +5,7 @@ import svg4everybody from 'svg4everybody';
 // Sources
 import loadFonts from './loadFonts';
 import enableMenuToggle from './enableMenuToggle';
-import jsCheck from './enableMenuToggle';
+import jsCheck from './jsCheck';
 
 // Run the check for JS
 jsCheck();

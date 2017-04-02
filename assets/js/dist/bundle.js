@@ -14,8 +14,8 @@ Object.defineProperty(exports, "__esModule", {
  */
 
 function enableMenuToggle() {
-	var siteWrapper = document.getElementById('wrapper'),
-	    mobileToggleButton = document.getElementById('js-menu-toggle');
+	var siteWrapper = document.getElementById('wrapper');
+	var mobileToggleButton = document.getElementById('js-menu-toggle');
 
 	// Return if the parts we need aren't there
 	if (!mobileToggleButton || !siteWrapper) {
@@ -25,7 +25,7 @@ function enableMenuToggle() {
 	/**
   * Toggle the menu from the menu button
   */
-	mobileToggleButton.addEventListener('click', function () {
+	mobileToggleButton.addEventListener('click', function (event) {
 		event.preventDefault();
 
 		siteWrapper.classList.toggle('b-site-wrapper--menu-open');
@@ -38,6 +38,28 @@ exports.default = enableMenuToggle;
 /***/ }),
 
 /***/ 118:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/**
+ * Simple check to remove the .no-js class on the html element if JavaScript is enabled
+ */
+
+function jsCheck() {
+  document.documentElement.classList.remove('no-js');
+  document.documentElement.classList.add('js');
+}
+
+exports.default = jsCheck;
+
+/***/ }),
+
+/***/ 119:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -68,7 +90,7 @@ exports.default = loadFonts;
 
 /***/ }),
 
-/***/ 119:
+/***/ 120:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -80,7 +102,7 @@ var _svg4everybody = __webpack_require__(60);
 
 var _svg4everybody2 = _interopRequireDefault(_svg4everybody);
 
-var _loadFonts = __webpack_require__(118);
+var _loadFonts = __webpack_require__(119);
 
 var _loadFonts2 = _interopRequireDefault(_loadFonts);
 
@@ -88,10 +110,14 @@ var _enableMenuToggle = __webpack_require__(117);
 
 var _enableMenuToggle2 = _interopRequireDefault(_enableMenuToggle);
 
+var _jsCheck = __webpack_require__(118);
+
+var _jsCheck2 = _interopRequireDefault(_jsCheck);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Run the check for JS
-(0, _enableMenuToggle2.default)();
+(0, _jsCheck2.default)();
 
 // Run svg4everybody()
 
@@ -108,4 +134,4 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ })
 
-},[119]);
+},[120]);

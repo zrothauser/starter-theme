@@ -1,0 +1,21 @@
+{
+	"extends": "airbnb",
+	"env": {
+		"browser": true,
+		"es6": true,
+		"jquery": true
+	},
+	"globals": {
+		"wp": true
+	},
+	"rules": {
+		"indent": ["error", "tab", { "SwitchCase": 1 }],
+		"comma-dangle": ["error", "never"],
+		"no-tabs": "off",
+		"arrow-body-style": "off",
+		"yoda": ["error", "always"],
+		"class-methods-use-this": "off",
+		"no-multi-spaces": "off",
+		"no-trailing-spaces": ["error", { "skipBlankLines": true }]
+	}
+}
