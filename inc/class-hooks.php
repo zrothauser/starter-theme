@@ -49,6 +49,13 @@ class Hooks {
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'post-thumbnails' );
 
+		add_theme_support( 'custom-logo', array(
+			'height'      => 242,
+			'width'       => 400,
+			'flex-height' => true,
+			'flex-width'  => true,
+		) );
+
 		add_theme_support( 'html5', array(
 			'search-form',
 			'comment-form',
@@ -146,7 +153,7 @@ class Hooks {
 		register_nav_menu( 'footer', __( 'Footer Menu', 'starter-theme' ) );
 
 		// Social Menu
-		register_nav_menu( 'social', __( 'Social Menu', 'activeprospect' ) );
+		register_nav_menu( 'social', __( 'Social Menu', 'starter-theme' ) );
 	}
 
 	/**
